@@ -10,9 +10,12 @@ export default function ProvideAuth({ children }) {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await fetch("http://localhost:3000/api/auth/current-user", {
-          credentials: "include",
-        });
+        const res = await fetch(
+          "https://task-manager-api-8lyb.onrender.com/api/auth/current-user",
+          {
+            credentials: "include",
+          }
+        );
 
         if (!res.ok) {
           setUser(null);
@@ -38,7 +41,7 @@ export default function ProvideAuth({ children }) {
   };
 
   const logout = async () => {
-    await fetch("http://localhost:3000/api/auth/logout", {
+    await fetch("https://task-manager-api-8lyb.onrender.com/api/auth/logout", {
       method: "POST",
       credentials: "include",
     });

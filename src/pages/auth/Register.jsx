@@ -4,16 +4,19 @@ export const registerAction = async ({ request }) => {
   const formData = await request.formData();
   const username = formData.get("username");
   const password = formData.get("password");
-  const res = await fetch("http://localhost:3000/api/auth/register", {
-    method: "post",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      username,
-      password,
-    }),
-  });
+  const res = await fetch(
+    "https://task-manager-api-8lyb.onrender.com/api/auth/register",
+    {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username,
+        password,
+      }),
+    }
+  );
 
   if (!res.ok) {
     const errorData = await res.json();

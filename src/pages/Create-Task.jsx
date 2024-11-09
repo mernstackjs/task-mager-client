@@ -6,18 +6,21 @@ export const taskAction = async ({ request }) => {
   const desc = formData.get("desc");
   const priority = formData.get("priority");
 
-  const res = await fetch("http://localhost:3000/api/task", {
-    method: "post",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    credentials: "include",
-    body: JSON.stringify({
-      title,
-      desc,
-      priority,
-    }),
-  });
+  const res = await fetch(
+    "https://task-manager-api-8lyb.onrender.com/api/task",
+    {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      body: JSON.stringify({
+        title,
+        desc,
+        priority,
+      }),
+    }
+  );
 
   if (!res.ok) {
     const errorData = await res.json();

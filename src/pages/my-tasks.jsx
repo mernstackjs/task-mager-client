@@ -3,9 +3,12 @@ import { toast } from "react-toastify";
 import { useState } from "react";
 
 export const myTasksLoader = async () => {
-  const res = await fetch("http://localhost:3000/api/task/my-tasks", {
-    credentials: "include",
-  });
+  const res = await fetch(
+    "https://task-manager-api-8lyb.onrender.com/api/task/my-tasks",
+    {
+      credentials: "include",
+    }
+  );
 
   if (!res.ok) {
     const errorData = await res.json();

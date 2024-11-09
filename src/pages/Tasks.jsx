@@ -1,9 +1,12 @@
 import { useLoaderData } from "react-router-dom";
 import { toast } from "react-toastify";
 export const taskLoader = async () => {
-  const res = await fetch("http://localhost:3000/api/task", {
-    credentials: "include",
-  });
+  const res = await fetch(
+    "https://task-manager-api-8lyb.onrender.com/api/task",
+    {
+      credentials: "include",
+    }
+  );
 
   if (!res.ok) {
     const errorData = await res.json();
